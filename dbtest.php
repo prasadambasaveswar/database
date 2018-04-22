@@ -9,16 +9,10 @@ if ($connection->connect_errno) {
     printf("Connect failed: %s\n", $mysqli->connect_error);
     exit();
 } else {
-    printf("demonstartion for inter pod communication");
+    printf("demonstartion for inter pod communication \n");
 }
 
-// Create database
-$sql = "CREATE DATABASE myDB";
-if (mysqli_query($connection, $sql)) {
-    echo "Database created successfully";
-} else {
-    echo "Error creating database: " . mysqli_error($connection);
-}
+
 
 // sql to create table
 $sql = "CREATE TABLE MyGuests (
@@ -30,17 +24,17 @@ reg_date TIMESTAMP
 )";
 
 if ($connection->query($sql) === TRUE) {
-    echo "Table MyGuests created successfully";
+    echo "Table MyGuests created successfully\n";
 } else {
     echo "Error creating table: " . $connection->error;
 }
 
 
 $sql = "INSERT INTO MyGuests (firstname, lastname, email)
-VALUES ('John', 'Doe', 'john@example.com')";
+VALUES ('bashu', 'pr', 'bprasadam@osius.com')";
 
 if ($connection->query($sql) === TRUE) {
-    echo "New record created successfully";
+    echo "New record created successfully \n";
 } else {
     echo "Error: " . $sql . "<br>" . $connection->error;
 }
