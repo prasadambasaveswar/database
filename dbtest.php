@@ -14,7 +14,7 @@ if ($connection->connect_errno) {
 
 
 
-// sql to create table
+// sql to create table.
 $sql = "CREATE TABLE MyGuests (
 id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
 firstname VARCHAR(30) NOT NULL,
