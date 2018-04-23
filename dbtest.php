@@ -29,7 +29,7 @@ if ($connection->query($sql) === TRUE) {
 }
 
 $sql = "INSERT INTO MyTeam (firstname, lastname, email)
-VALUES ('".$_post['lname']."', '".$_post['name']."', '".$_post['email']."')";
+VALUES ('".$_get['lname']."', '".$_get['name']."', '".$_get['email']."')";
 
 if ($connection->query($sql) === TRUE) {
     echo "New record created successfully";
