@@ -19,8 +19,25 @@ VALUES ('".$_get['fname']."', '".$_get['lname']."', '".$_get['email']."')";
 
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
-	$sql2 = "SELECT * FROM MyTeam;";
-	echo $conn->query($sql2);	
+	mysqli_query($conn,"SELECT * FROM MyTeam");
+	echo "<table border='1'>
+<tr>
+<th>Firstname</th>
+<th>Lastname</th>
+</tr>";
+
+while($row = mysqli_fetch_array($result))
+{
+echo "<tr>";
+echo "<td>" . $row['firstname'] . "</td>";
+echo "<td>" . $row['lastname'] . "</td>";
+echo "<td>" . $row['email'] . "</td>"
+echo "</tr>";
+}
+echo "</table>";
+	
+//$sql2 = "SELECT * FROM MyTeam;";
+//	echo $conn->query($sql2);	
 	} else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
