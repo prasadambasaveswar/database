@@ -24,7 +24,7 @@ if ($conn->query($sql) === TRUE) {
 }
 
 
-$sql2 = "SELECT * FROM MyTeam";
+$sql2 = "SELECT * FROM MyTeam;";
 $result = $connection->query($sql2);
 
 if ($conn->query($sql2) === TRUE) {
