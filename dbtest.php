@@ -27,7 +27,9 @@ if ($connection->query($sql) === TRUE) {
 } else {
     echo "Error creating table: " . $connection->error;
 }
-
+echo $_GET["lname"];
+echo $_GET["fname"];
+echo $_GET["email"];
 $sql = "INSERT INTO MyTeam (firstname, lastname, email)
 VALUES ('".$_get['lname']."', '".$_get['name']."', '".$_get['email']."')";
 
