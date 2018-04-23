@@ -28,7 +28,7 @@ $sql2 = "SELECT * FROM MyTeam";
 $result = $connection->query($sql2);
 
 if ($conn->query($sql2) === TRUE) {
-   echo $result
+   echo $result;
 	} else {
     echo "Error: " . $sql2 . "<br>" . $conn->error;
 }
