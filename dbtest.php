@@ -19,8 +19,16 @@ if ($conn->connect_error) {
 } 
 
 
-$sql = "INSERT INTO MyTeam (firstname, lastname, email)
-VALUES ('".$_get['fname']."', '".$_get['lname']."', '".$_get['email']."')";
+$sql = "INSERT INTO MyTeam (firstname, lastname, email) VALUES ('$_GET[fname]','$_GET[lname]','$_GET[email]')";
+
+
+//"INSERT INTO nametable (fname, lname)
+
+//VALUES
+
+//('$_POST[fname]','$_POST[lname]')";
+
+
 
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
