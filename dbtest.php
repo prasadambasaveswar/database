@@ -39,9 +39,27 @@ echo "===================";
 
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
+	$result = mysqli_query($conn,"SELECT firstname, lastname, email FROM MyTeam;");
+	echo "<table border='1'>
+<tr>
+<th>Firstname</th>
+<th>Lastname</th>
+<th>Email</th>
+</tr>";
+
+while($row = mysqli_fetch_array($result))
+{
+echo "<tr>";
+echo "<td>" . $row['firstname'] . "</td>";
+echo "<td>" . $row['lastname'] . "</td>";
+echo "<td>" . $row['email'] . "</td>";
+echo "</tr>";
+}
+echo "</table>";
+
 	//$sql2 = "SELECT * FROM MyTeam;";
 //	echo $conn->query($sql2);
-	$db = new database();
+/*	$db = new database();
 	$query = "select * from data";
         $result = $db->select($query);
 
@@ -60,6 +78,7 @@ if ($conn->query($sql) === TRUE) {
             echo "</tr>";
          }
        echo "</table>";
+    */
 	} else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
