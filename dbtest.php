@@ -30,7 +30,7 @@ if ($connection->query($sql) === TRUE) {
 
 
 $sql = "INSERT INTO MyTeam (firstname, lastname, email)
-VALUES ($_GET["lname"], $_GET["name"], $_GET["email"])";
+VALUES ('".$_GET["lname"]"', '".$_GET["name"]"', '".$_GET["email"]"')";
 
 if ($connection->query($sql) === TRUE) {
     echo "New record created successfully";
