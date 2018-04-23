@@ -14,7 +14,7 @@ if ($conn->connect_error) {
 } 
 
 
-$sql = "INSERT INTO MyGuests (firstname, lastname, email)
+$sql = "INSERT INTO MyTeam (firstname, lastname, email)
 VALUES ('".$_get['fname']."', '".$_get['lname']."', '".$_get['email']."')";
 
 if ($conn->query($sql) === TRUE) {
