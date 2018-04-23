@@ -19,11 +19,12 @@ VALUES ('".$_get['fname']."', '".$_get['lname']."', '".$_get['email']."')";
 
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
-	mysqli_query($conn,"SELECT * FROM MyTeam");
+	$result = mysqli_query($conn,"SELECT firstname, lastname, email FROM MyTeam;");
 	echo "<table border='1'>
 <tr>
 <th>Firstname</th>
 <th>Lastname</th>
+<th>Email</th>
 </tr>";
 
 while($row = mysqli_fetch_array($result))
