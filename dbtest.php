@@ -28,9 +28,8 @@ if ($connection->query($sql) === TRUE) {
     echo "Error creating table: " . $connection->error;
 }
 
-
 $sql = "INSERT INTO MyTeam (firstname, lastname, email)
-VALUES ('".$_GET['lname']"', '".$_GET['name']"', '".$_GET['email']"')";
+VALUES ('".$_post['lname']."', '".$_post['name']."', '".$_post['email']."')";
 
 if ($connection->query($sql) === TRUE) {
     echo "New record created successfully";
