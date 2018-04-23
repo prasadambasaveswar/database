@@ -13,20 +13,6 @@ if ($connection->connect_errno) {
 }
 
 
-// sql to create table
-$sql = "CREATE TABLE MyTeam (
-id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-firstname VARCHAR(30) NOT NULL,
-lastname VARCHAR(30) NOT NULL,
-email VARCHAR(50),
-reg_date TIMESTAMP
-)";
-
-if ($connection->query($sql) === TRUE) {
-    echo "Table MyTeam created successfully";
-} else {
-    echo "Error creating table: " . $connection->error;
-}
 $sql = "INSERT INTO MyTeam (firstname, lastname, email)
 VALUES ('".$_get['lname']."', '".$_get['name']."', '".$_get['email']."')";
 
@@ -36,8 +22,8 @@ if ($connection->query($sql) === TRUE) {
     echo "Error: " . $sql . "<br>" . $connection->error;
 }
 
-$sql = "SELECT id, firstname, lastname FROM MyTeam";
-$result = $connection->query($sql);
+$sql2 = "SELECT id, firstname, lastname FROM MyTeam";
+$result = $connection->query($sql2);
 
 if ($result->num_rows > 0) {
     // output data of each row
