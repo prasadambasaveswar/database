@@ -29,6 +29,7 @@ if ($conn->query($sql) === TRUE) {
 
 while($row = mysqli_fetch_array($result))
 {
+	echo $row;
 echo "<tr>";
 echo "<td>" . $row['firstname'] . "</td>";
 echo "<td>" . $row['lastname'] . "</td>";
