@@ -19,7 +19,7 @@ if ($conn->connect_error) {
 } 
 
 
-$sql = "INSERT INTO MyTeam (firstname, lastname, email) VALUES ('$_GET[fname]','$_GET[lname]','$_GET[email]')";
+$sql = "INSERT INTO MyTeam (firstname, lastname, email) VALUES ('$_POST[fname]','$_POST[lname]','$_POST[email]')";
 
 echo "===================";
 echo $_POST["fname"];
