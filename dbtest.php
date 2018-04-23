@@ -19,20 +19,22 @@ VALUES ('".$_get['fname']."', '".$_get['lname']."', '".$_get['email']."')";
 
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
+	$sql2 = "SELECT * FROM MyTeam;";
+	echo $conn->query($sql2);	
 	} else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
 
-$sql2 = "SELECT * FROM MyTeam;";
+/*$sql2 = "SELECT * FROM MyTeam;";
 $result = $conn->query($sql2);
-
+Welcome <?php echo $_GET["name"]; ?><br>
 if ($conn->query($sql2) === TRUE) {
    echo $result;
 	} else {
     echo "Error: " . $sql2 . "<br>" . $conn->error;
 }
-
+*/
 $conn->close();
 ?>
 
