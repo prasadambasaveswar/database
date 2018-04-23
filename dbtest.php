@@ -1,39 +1,38 @@
 <?php
-$dbhost = getenv("MYSQL_SERVICE_HOST");
-$dbport = getenv("MYSQL_SERVICE_PORT");
-$dbuser = getenv("databaseuser");
-$dbpwd = getenv("databasepassword");
+$servername =  getenv("MYSQL_SERVICE_HOST");
+$username = getenv("databaseuser");
+$password = getenv("databasepassword");
 $dbname = getenv("databasename");
-$connection = new mysqli($dbhost, $dbuser, $dbpwd, $dbname);
-if ($connection->connect_errno) {
-    printf("Connect failed: %s\n", $mysqli->connect_error);
-    exit();
-} else {
-    printf("demonstartion for inter pod communication");
-}
 
 
-$sql = "INSERT INTO MyTeam (firstname, lastname, email)
-VALUES ('".$_get['lname']."', '".$_get['name']."', '".$_get['email']."')";
 
-if ($connection->query($sql) === TRUE) {
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+
+
+$sql = "INSERT INTO MyGuests (firstname, lastname, email)
+VALUES ('".$_get['fname']."', '".$_get['lname']."', '".$_get['email']."')";
+
+if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
-} else {
-    echo "Error: " . $sql . "<br>" . $connection->error;
+	} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
-$sql2 = "SELECT id, firstname, lastname FROM MyTeam";
+
+$sql2 = "SELECT * FROM MyTeam";
 $result = $connection->query($sql2);
 
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
-    }
-} else {
-    echo "0 results";
+if ($conn->query($sql2) === TRUE) {
+   echo $result
+	} else {
+    echo "Error: " . $sql2 . "<br>" . $conn->error;
 }
 
-
-$connection->close();
+$conn->close();
 ?>
+
