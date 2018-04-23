@@ -21,6 +21,13 @@ if ($conn->connect_error) {
 
 $sql = "INSERT INTO MyTeam (firstname, lastname, email) VALUES ('$_GET[fname]','$_GET[lname]','$_GET[email]')";
 
+echo "===================";
+echo "$_GET[fname]\n";
+echo "$_GET[lname]\n";
+echo "$_GET[email]\n";
+
+echo "===================";
+
 
 //"INSERT INTO nametable (fname, lname)
 
