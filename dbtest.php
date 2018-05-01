@@ -20,7 +20,7 @@ email VARCHAR(50),
 reg_date TIMESTAMP
 )";
 
-if ($connection->query($sql) === TRUE) {
+if ($conn->query($sql) === TRUE) {
     echo "Table MyTeam created successfully";
 } else {
     echo "Error creating table: " . $connection->error;
