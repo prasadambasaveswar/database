@@ -19,6 +19,13 @@ lastname VARCHAR(30) NOT NULL,
 email VARCHAR(50),
 reg_date TIMESTAMP
 )";
+
+if ($connection->query($sql) === TRUE) {
+    echo "Table MyTeam created successfully";
+} else {
+    echo "Error creating table: " . $connection->error;
+}
+
 $sql = "INSERT INTO MyTeam (firstname, lastname, email) VALUES ('$_POST[fname]','$_POST[lname]','$_POST[email]')";
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
